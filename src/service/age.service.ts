@@ -1,7 +1,7 @@
 /*
  * @Author: Piers.Zhang
  * @Date: 2020-12-04 16:24:53
- * @LastEditTime: 2020-12-05 10:43:02
+ * @LastEditTime: 2020-12-08 16:51:36
  * @LastEditors: Do not edit
  */
 import { Injectable } from '@nestjs/common';
@@ -12,7 +12,7 @@ export class AgeService {
     constructor(
     ) { }
 
-    async getAge(): Promise<number> {
-        return await data.find(item => item.id === 1).age;
+    async getAge(id: number): Promise<number> {
+        return await data.find(item => item.id === Number(id)).age;
     }
 }

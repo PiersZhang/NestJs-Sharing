@@ -1,7 +1,7 @@
 /*
  * @Author: Piers.Zhang
  * @Date: 2020-12-02 18:13:07
- * @LastEditTime: 2020-12-05 10:17:28
+ * @LastEditTime: 2020-12-08 16:20:15
  * @LastEditors: Do not edit
  */
 import { Injectable } from '@nestjs/common';
@@ -12,7 +12,7 @@ export class AppService {
   constructor(
     private readonly userService: UserService,
   ){ }
-  getHello() {
-      return this.userService.getUserInfo();
+  getHello(id: number) {
+      return this.userService.getUserInfo(id);
   }
 }

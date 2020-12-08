@@ -1,12 +1,12 @@
 /*
  * @Author: Piers.Zhang
  * @Date: 2020-12-02 18:13:07
- * @LastEditTime: 2020-12-05 10:16:47
+ * @LastEditTime: 2020-12-08 16:19:49
  * @LastEditors: Do not edit
  */
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Query } from '@nestjs/common';
 import { AppService } from './app.service';
-import { NameService } from './service/name.service';
+import { QueryDto } from './dto/index.dto';
 
 @Controller()
 export class AppController {
@@ -15,7 +15,7 @@ export class AppController {
   ) {}
 
   @Get('/getHello')
-  getHello() {
-    return this.appService.getHello();
+  getHello(@Query() query: QueryDto) {
+    return this.appService.getHello(query.id);
   }
 }

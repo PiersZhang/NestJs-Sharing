@@ -1,11 +1,12 @@
 /*
  * @Author: Piers.Zhang
  * @Date: 2020-12-04 16:22:14
- * @LastEditTime: 2020-12-05 10:25:09
+ * @LastEditTime: 2020-12-08 16:22:48
  * @LastEditors: Do not edit
  */
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Query } from '@nestjs/common';
 import { NameService } from '../service/name.service';
+import { QueryDto } from '../dto/index.dto';
 
 
 @Controller()
@@ -15,7 +16,7 @@ export class NameController {
     ) { }
 
     @Get('/name')
-    async name() {
-        return await this.nameService.getName();
+    async name(@Query() query:QueryDto) {
+        return await this.nameService.getName(query.id);
     }
 }

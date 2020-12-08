@@ -1,7 +1,7 @@
 /*
  * @Author: Piers.Zhang
  * @Date: 2020-12-04 16:24:53
- * @LastEditTime: 2020-12-05 10:48:05
+ * @LastEditTime: 2020-12-08 16:20:41
  * @LastEditors: Do not edit
  */
 import { Injectable } from '@nestjs/common';
@@ -15,9 +15,9 @@ export class UserService {
         private readonly ageService: AgeService
     ) { }
 
-    async getUserInfo() {
-        const name = await this.nameService.getName();
-        const age = await this.ageService.getAge();
+    async getUserInfo(id: number) {
+        const name = await this.nameService.getName(id);
+        const age = await this.ageService.getAge(id);
         return this.welcome(age, name);
     }
     async welcome(age: number, name: string): Promise<string> {
