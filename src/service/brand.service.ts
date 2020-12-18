@@ -1,18 +1,19 @@
 /*
  * @Author: Piers.Zhang
  * @Date: 2020-12-04 16:24:53
- * @LastEditTime: 2020-12-08 16:51:36
+ * @LastEditTime: 2020-12-15 14:59:30
  * @LastEditors: Do not edit
  */
 import { Injectable } from '@nestjs/common';
 import { data } from '../mock/index';
 
 @Injectable()
-export class AgeService {
+export class BrandService {
     constructor(
     ) { }
 
-    async getAge(id: number): Promise<number> {
-        return await data.find(item => item.id === Number(id)).age;
+    async getBrand(id: number) {
+        let brand = await data.find((item) => {return item.id === Number(id)}).brand;
+        return brand;
     }
 }
